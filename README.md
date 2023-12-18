@@ -82,3 +82,13 @@ Stores the accounts of users in the system.
 | `user_id`       | Foreign key to the `tenmo_user` table; identifies user who owns account |
 | `balance`       | The amount of TE bucks currently in the account                    |
 
+
+
+How To Run: 
+1. Start server side application
+2. Then run the client side
+3. Register for an account
+4. Login to the account
+5. Send or Request Tenmo Bucks.
+   
+
