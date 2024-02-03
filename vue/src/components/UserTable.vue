@@ -28,6 +28,10 @@
                     <tr v-for="user in filteredList" v-bind:key="user.userId" v-bind:user="users">
                         <td>{{ user.id }}</td>
                         <td>{{ user.username }}</td>
+                        <td >
+                            <button class="action">Send</button>
+                            <button class="action">Request</button>
+                        </td>
                     </tr>
                 
                 </tbody>
@@ -86,16 +90,17 @@ export default {
 </script>
 
 <style>
-.button{
-    display: flex;
+.button,.action{
+    display: inline-block;
     padding: 5px;
-    margin: 15px;
+    margin: 5px;
     color: purple;
     border-radius: 25px;
     border: .1em gray solid;
     transition: background-color 0.3s, color 0.3s;
+   
 }
-.button:hover{
+.button:hover, .action:hover{
     background-color: purple;
     color: white;
 }
@@ -112,5 +117,16 @@ tr,td{
 body{
     background-color: rgb(158, 151, 168);
     
+}
+th{
+    text-decoration: underline;
+}
+h2{
+    display: block;
+    width: 0 auto;
+    text-align: center;
+    color: rgb(73, 17, 73)
+    
+
 }
 </style>
