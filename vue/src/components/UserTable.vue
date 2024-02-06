@@ -5,15 +5,15 @@
          <button class="button">Approve Transfer</button>
          <button class="button">Get Your Transactions</button>
     </div>
-    <div class="directory">
+    <div >
         <h2>Users Directory</h2>
-        <div>
-            <table>
+        <div class="directory">
+            <table >
                 <thead>
                     <tr>
                         <th>User Id</th>
                         <th>Username</th>
-                        <th>Action</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -96,17 +96,19 @@ export default {
     margin: 5px;
     color: purple;
     border-radius: 25px;
-    border: .1em gray solid;
+    border: .1em slategrey solid;
     transition: background-color 0.3s, color 0.3s;
-   
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .button:hover, .action:hover{
     background-color: purple;
     color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .directory{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     text-align: center;
     border: 2px black solid;
 }
@@ -126,7 +128,9 @@ h2{
     width: 0 auto;
     text-align: center;
     color: rgb(73, 17, 73)
-    
-
 }
+table{
+    align-content: center;
+}
+
 </style>
