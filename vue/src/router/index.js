@@ -8,7 +8,9 @@ import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import SendView from '../views/SendView.vue';
 import RequestView from '../views/requestView.vue';
-
+import BalanceView from '@/views/BalanceView.vue';
+import TransactionView from '@/views/TransactionView.vue';
+import PendingView from '@/views/PendingView.vue';
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -66,6 +68,30 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+},
+{
+    path: "/balance",
+    name: "balance",
+    component: BalanceView,
+    meta: {
+      requiresAuth: true
+    }
+}, 
+{
+  path: "/transaction",
+  name: "transaction",
+  component: TransactionView,
+  meta: {
+    requiresAuth: true
+  }
+},
+{
+  path: "/pending",
+  name: "pending",
+  component: PendingView,
+  meta: {
+    requiresAuth: true
+  }
 }
 ];
 

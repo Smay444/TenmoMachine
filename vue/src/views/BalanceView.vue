@@ -1,5 +1,6 @@
 <template>
-    <h2>View Transactions</h2>
+  <h2>View Balance</h2>
+
 </template>
 
 <script>

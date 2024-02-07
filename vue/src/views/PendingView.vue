@@ -1,5 +1,5 @@
 <template>
-    <h2>View Transactions</h2>
+  <h2>Pending Transactions</h2>
 </template>
 
 <script>
