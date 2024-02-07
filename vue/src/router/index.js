@@ -6,6 +6,8 @@ import HomeView from '../views/HomeView.vue';
 import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
 import RegisterView from '../views/RegisterView.vue';
+import SendView from '../views/SendView.vue';
+import RequestView from '../views/requestView.vue';
 
 
 /**
@@ -48,7 +50,23 @@ const routes = [
     meta: {
       requiresAuth: false
     }
-  }
+  },
+{
+    path: "/send",
+    name: "send",
+    component: SendView,
+    meta: {
+      requiresAuth: true
+    }
+},
+{
+    path: "/request",
+    name: "request",
+    component: RequestView,
+    meta: {
+      requiresAuth: true
+    }
+}
 ];
 
 // Create the router

@@ -1,6 +1,5 @@
 <template>
-  <h2>Send Money</h2>
-  
+  <h2>Request Tenmo Bucks</h2>
 </template>
 
 <script>
