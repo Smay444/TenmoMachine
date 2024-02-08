@@ -10,7 +10,7 @@ import SendView from '../views/SendView.vue';
 import RequestView from '../views/requestView.vue';
 import BalanceView from '@/views/BalanceView.vue';
 import TransactionView from '@/views/TransactionView.vue';
-import PendingView from '@/views/PendingView.vue';
+import PendingView from '@/views/PendingView.vue'
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -22,7 +22,7 @@ import PendingView from '@/views/PendingView.vue';
  */
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: HomeView,
     meta: {
@@ -30,7 +30,7 @@ const routes = [
     }
   },
   {
-    path: "/login",
+    path: "/",
     name: "login",
     component: LoginView,
     meta: {
@@ -112,6 +112,8 @@ router.beforeEach((to) => {
   // If it does and they are not logged in, send the user to "/login"
   if (requiresAuth && store.state.token === '') {
     return {name: "login"};
+  } else if (!store.state.token === ''){
+    return {name: "home"};
   }
   // Otherwise, do nothing and they'll go to their next destination
 });
