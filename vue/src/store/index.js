@@ -33,21 +33,6 @@ export function createStore(currentToken, currentUser) {
       SET_BALANCE(state, balance){
         state.balance = balance;
       }
-    },
-    actions: {
-      async fetchBalance({commit}){
-        try {
-          const response = await axios.get('/transactions');
-          const balance = response.data.balance;
-          commit('SET_BALANCE', balance);
-        } catch {
-          console.error('Error fetching balance', error)
-        }
-      }
-    },
-    getters: {
-      getUsers: state => state.users,
-      getBalance: state => state.balance
     }
   });
  
