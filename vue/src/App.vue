@@ -8,6 +8,15 @@
     </div>
     <router-view />
 
+
     <footer>© Tenmo Money Transfer System</footer>
   </div>
 </template>
+
+<style scoped>
+footer{
+  margin: 20px;
+  padding: 5px;
+  
+}
+</style>

@@ -6,6 +6,7 @@
       <button @click="navigateToTransactionView">View Transactions</button>
       <button @click="navigateToPendingView">View Pending Transactions</button>
       <button @click="navigateToSendView">Send Tenmo Bucks</button>
+      <button @click="navigateToRequestView">Request Tenmo Bucks</button>
       <button @click="navigateToHomeView">Logout</button>
     </div>
 
@@ -39,13 +40,18 @@ export default {
       router.push("/logout")
     };
 
+    const navigateToRequestView = () => {
+        router.push("/request");
+    }
+
 
     return {
       navigateToBalanceView,
       navigateToTransactionView,
       navigateToPendingView,
       navigateToSendView,
-      navigateToHomeView
+      navigateToHomeView,
+      navigateToRequestView
     }
   }
 };

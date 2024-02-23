@@ -7,6 +7,7 @@ export function createStore(currentToken, currentUser) {
       token: currentToken || '',
       user: currentUser || {},
       users: [],
+      balance: 0
     },
     mutations: {
       SET_AUTH_TOKEN(state, token) {
@@ -16,6 +17,7 @@ export function createStore(currentToken, currentUser) {
       },
       SET_USER(state, user) {
         state.user = user;
+        state.balance = user.balance;
         localStorage.setItem('user', JSON.stringify(user));
       },
       LOGOUT(state) {
@@ -27,8 +29,27 @@ export function createStore(currentToken, currentUser) {
       },
       SET_USERS(state, users){
         state.users = users;
+      }, 
+      SET_BALANCE(state, balance){
+        state.balance = balance;
       }
     },
+    actions: {
+      async fetchBalance({commit}){
+        try {
+          const response = await axios.get('/transactions');
+          const balance = response.data.balance;
+          commit('SET_BALANCE', balance);
+        } catch {
+          console.error('Error fetching balance', error)
+        }
+      }
+    },
+    getters: {
+      getUsers: state => state.users,
+      getBalance: state => state.balance
+    }
   });
+ 
   return store;
 }
