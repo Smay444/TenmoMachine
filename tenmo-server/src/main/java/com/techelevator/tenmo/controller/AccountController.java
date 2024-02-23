@@ -52,7 +52,7 @@ public class AccountController {
         try {
             balance = accountDao.getBalance(userId);
         } catch (DataAccessException e) {
-            // Handle data access exceptions appropriately
+
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
