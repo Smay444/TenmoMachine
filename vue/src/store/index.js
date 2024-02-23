@@ -33,7 +33,9 @@ export function createStore(currentToken, currentUser) {
       SET_BALANCE(state, balance){
         state.balance = balance;
       }
-    }
+    },
+   
+    
   });
  
   return store;
