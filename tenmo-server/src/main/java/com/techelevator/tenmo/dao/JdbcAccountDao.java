@@ -1,10 +1,14 @@
 package com.techelevator.tenmo.dao;
 
 import com.techelevator.tenmo.model.Account;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+
+import java.math.BigDecimal;
+import java.security.Principal;
 
 
 @Component
@@ -49,7 +53,21 @@ public class JdbcAccountDao implements AccountDao{
         }
         return account;
     }
+    @Override
+    public BigDecimal getBalance(int userId){
 
+
+        String sql = "SELECT balance \n" +
+                "FROM account\n" +
+                "WHERE account_id = ?;";
+        try {
+            return jdbcTemplate.queryForObject(sql, new Object[]{userId},
+                    (rs, rowNum) -> new BigDecimal(rs.getDouble("balance")));
+        } catch (DataAccessException e) {
+            // Handle data access exceptions appropriately (e.g., log, throw custom exception)
+            throw new RuntimeException("Error retrieving balance for user " + userId, e);
+        }
+    }
     public Account getAccountByUserId(int userId) {
         Account account = null;
 
