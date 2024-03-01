@@ -1,8 +1,9 @@
 <template>
   <h2>View Balance</h2>
   <h3>UserName: {{ this.$store.state.user.username }}</h3>
-  <p>Balance: {{this.$store.state.balance}} </p>
+  <p>Balance: {{balance}} </p>
   <button @click="fetchBalance">Refresh Balance</button>
+  <button @click="navigateToHomeView">Go Back Home</button>
 
 </template>
 
@@ -15,14 +16,25 @@ export default {
     },
   },
   methods: {
-  ...mapActions(['fetchBalance']),
+    ...mapActions(['fetchBalance']),
+    navigateToHomeView() {
+      this.$router.push('/home');
+    },
 
+navigateToHomeView() {
+  this.$router.push('/home');
 },
-  mounted(){
-    this.fetchBalance;
-  }
+
+mounted(){
+  this.fetchBalance();
+},
+  
+
+  
   
 }
+}
+
 </script>
 
 <style scoped>

@@ -18,6 +18,7 @@ export function createStore(currentToken, currentUser) {
       SET_USER(state, user) {
         state.user = user;
         state.balance = user.balance;
+        state.user.accountId = user.accountId;
         localStorage.setItem('user', JSON.stringify(user));
       },
       LOGOUT(state) {
@@ -27,22 +28,21 @@ export function createStore(currentToken, currentUser) {
         state.user = {};
         axios.defaults.headers.common = {};
       },
-      SET_USERS(state, users){
-        state.users = users;
-      }, 
+    
       SET_BALANCE(state, balance){
         state.balance = balance;
       }
     },
-    export: {
-      async fetchBalance({ commit, state }) {
-        try {
-          const userId = state.user.id; 
-          const response = await axios.get(`/account/balance?userId=${userId}`);
-          commit('SET_BALANCE', response.data); 
-        } catch (error) {
-         
-          console.error('Error fetching balance:', error);
+    actions: {
+      fetchBalance(){
+        if (state.user) {
+          const accountId = state.user.account_id;
+          axios.get(`/account/balance?accountId=${accountId}`)
+          .then(response => {
+            commit('SET_BALANCE', response.data);
+          }).catch(error => {
+            console.error('Error fetching balance:', error);
+          });
         }
       },
     }
